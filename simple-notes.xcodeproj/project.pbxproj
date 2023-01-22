@@ -19,6 +19,11 @@
 		C47605D2297CFE610072726D /* PersistenceController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47605D1297CFE610072726D /* PersistenceController+Extension.swift */; };
 		C47605D5297D6D7E0072726D /* PredicateKit in Frameworks */ = {isa = PBXBuildFile; productRef = C47605D4297D6D7E0072726D /* PredicateKit */; };
 		C47605D8297D717B0072726D /* LoremSwiftum in Frameworks */ = {isa = PBXBuildFile; productRef = C47605D7297D717B0072726D /* LoremSwiftum */; };
+		C47605DE297D81620072726D /* CoreDataRepository in Frameworks */ = {isa = PBXBuildFile; productRef = C47605DD297D81620072726D /* CoreDataRepository */; };
+		C47605E2297D81B00072726D /* NotaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47605E1297D81B00072726D /* NotaModel.swift */; };
+		C47605E6297D827C0072726D /* NotaEntity+RepositoryManagedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47605E5297D827C0072726D /* NotaEntity+RepositoryManagedModel.swift */; };
+		C47605E9297D82D40072726D /* NotaEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47605E8297D82D40072726D /* NotaEntity.swift */; };
+		C47605ED297D83E10072726D /* NotaModel+UnmanagedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47605EC297D83E10072726D /* NotaModel+UnmanagedModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +58,10 @@
 		C47605CB297CF0B80072726D /* Notas.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Notas.xcdatamodel; sourceTree = "<group>"; };
 		C47605CE297CF8F80072726D /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		C47605D1297CFE610072726D /* PersistenceController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersistenceController+Extension.swift"; sourceTree = "<group>"; };
+		C47605E1297D81B00072726D /* NotaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotaModel.swift; sourceTree = "<group>"; };
+		C47605E5297D827C0072726D /* NotaEntity+RepositoryManagedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotaEntity+RepositoryManagedModel.swift"; sourceTree = "<group>"; };
+		C47605E8297D82D40072726D /* NotaEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotaEntity.swift; sourceTree = "<group>"; };
+		C47605EC297D83E10072726D /* NotaModel+UnmanagedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotaModel+UnmanagedModel.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C47605DE297D81620072726D /* CoreDataRepository in Frameworks */,
 				C47605D8297D717B0072726D /* LoremSwiftum in Frameworks */,
 				C47605D5297D6D7E0072726D /* PredicateKit in Frameworks */,
 			);
@@ -160,10 +170,30 @@
 		C47605CD297CF8E00072726D /* DataManagement */ = {
 			isa = PBXGroup;
 			children = (
+				C47605E7297D82C60072726D /* Entities */,
+				C47605E0297D81A50072726D /* Models */,
 				C47605CA297CF0B80072726D /* Main.xcdatamodeld */,
 				C47605CE297CF8F80072726D /* PersistenceController.swift */,
 			);
 			path = DataManagement;
+			sourceTree = "<group>";
+		};
+		C47605E0297D81A50072726D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C47605E1297D81B00072726D /* NotaModel.swift */,
+				C47605EC297D83E10072726D /* NotaModel+UnmanagedModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C47605E7297D82C60072726D /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				C47605E8297D82D40072726D /* NotaEntity.swift */,
+				C47605E5297D827C0072726D /* NotaEntity+RepositoryManagedModel.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,6 +215,7 @@
 			packageProductDependencies = (
 				C47605D4297D6D7E0072726D /* PredicateKit */,
 				C47605D7297D717B0072726D /* LoremSwiftum */,
+				C47605DD297D81620072726D /* CoreDataRepository */,
 			);
 			productName = "simple-notes";
 			productReference = C476056B297CE7100072726D /* simple-notes.app */;
@@ -261,6 +292,7 @@
 			packageReferences = (
 				C47605D3297D6D7E0072726D /* XCRemoteSwiftPackageReference "PredicateKit" */,
 				C47605D6297D717B0072726D /* XCRemoteSwiftPackageReference "LoremSwiftum" */,
+				C47605DC297D81620072726D /* XCRemoteSwiftPackageReference "CoreDataRepository" */,
 			);
 			productRefGroup = C476056C297CE7100072726D /* Products */;
 			projectDirPath = "";
@@ -306,7 +338,11 @@
 			files = (
 				C47605D2297CFE610072726D /* PersistenceController+Extension.swift in Sources */,
 				C4760571297CE7100072726D /* ContentView.swift in Sources */,
+				C47605E9297D82D40072726D /* NotaEntity.swift in Sources */,
 				C47605CC297CF0B80072726D /* Main.xcdatamodeld in Sources */,
+				C47605E6297D827C0072726D /* NotaEntity+RepositoryManagedModel.swift in Sources */,
+				C47605ED297D83E10072726D /* NotaModel+UnmanagedModel.swift in Sources */,
+				C47605E2297D81B00072726D /* NotaModel.swift in Sources */,
 				C476056F297CE7100072726D /* simple_notesApp.swift in Sources */,
 				C47605CF297CF8F80072726D /* PersistenceController.swift in Sources */,
 			);
@@ -678,6 +714,14 @@
 				minimumVersion = 2.2.1;
 			};
 		};
+		C47605DC297D81620072726D /* XCRemoteSwiftPackageReference "CoreDataRepository" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/roanutil/CoreDataRepository";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -690,6 +734,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C47605D6297D717B0072726D /* XCRemoteSwiftPackageReference "LoremSwiftum" */;
 			productName = LoremSwiftum;
+		};
+		C47605DD297D81620072726D /* CoreDataRepository */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C47605DC297D81620072726D /* XCRemoteSwiftPackageReference "CoreDataRepository" */;
+			productName = CoreDataRepository;
 		};
 /* End XCSwiftPackageProductDependency section */
 

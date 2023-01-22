@@ -19,7 +19,6 @@ extension PersistenceController {
             nota.fecha = .now
             nota.titulo = Lorem.words(3)
             nota.contenido = Lorem.paragraphs(Int.random(in: 0..<4))
-            nota.contenidoCorto = nota.contenido
         }
         
         return controller
