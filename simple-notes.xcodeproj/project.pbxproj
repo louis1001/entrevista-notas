@@ -14,6 +14,7 @@
 		C4760581297CE7120072726D /* simple_notesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4760580297CE7120072726D /* simple_notesTests.swift */; };
 		C476058B297CE7120072726D /* simple_notesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C476058A297CE7120072726D /* simple_notesUITests.swift */; };
 		C476058D297CE7120072726D /* simple_notesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C476058C297CE7120072726D /* simple_notesUITestsLaunchTests.swift */; };
+		C47605CC297CF0B80072726D /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C47605CA297CF0B80072726D /* Main.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		C4760586297CE7120072726D /* simple-notesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "simple-notesUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C476058A297CE7120072726D /* simple_notesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = simple_notesUITests.swift; sourceTree = "<group>"; };
 		C476058C297CE7120072726D /* simple_notesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = simple_notesUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C47605CB297CF0B80072726D /* Notas.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Notas.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				C4760570297CE7100072726D /* ContentView.swift */,
+				C47605CA297CF0B80072726D /* Main.xcdatamodeld */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4760571297CE7100072726D /* ContentView.swift in Sources */,
+				C47605CC297CF0B80072726D /* Main.xcdatamodeld in Sources */,
 				C476056F297CE7100072726D /* simple_notesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -628,6 +632,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C47605CA297CF0B80072726D /* Main.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C47605CB297CF0B80072726D /* Notas.xcdatamodel */,
+			);
+			currentVersion = C47605CB297CF0B80072726D /* Notas.xcdatamodel */;
+			path = Main.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C4760563297CE7100072726D /* Project object */;
 }
