@@ -15,6 +15,7 @@
 		C476058B297CE7120072726D /* simple_notesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C476058A297CE7120072726D /* simple_notesUITests.swift */; };
 		C476058D297CE7120072726D /* simple_notesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C476058C297CE7120072726D /* simple_notesUITestsLaunchTests.swift */; };
 		C47605CC297CF0B80072726D /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C47605CA297CF0B80072726D /* Main.xcdatamodeld */; };
+		C47605CF297CF8F80072726D /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47605CE297CF8F80072726D /* PersistenceController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		C476058A297CE7120072726D /* simple_notesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = simple_notesUITests.swift; sourceTree = "<group>"; };
 		C476058C297CE7120072726D /* simple_notesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = simple_notesUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		C47605CB297CF0B80072726D /* Notas.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Notas.xcdatamodel; sourceTree = "<group>"; };
+		C47605CE297CF8F80072726D /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,10 +144,19 @@
 		C476059A297CE7AD0072726D /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				C47605CD297CF8E00072726D /* DataManagement */,
 				C4760570297CE7100072726D /* ContentView.swift */,
-				C47605CA297CF0B80072726D /* Main.xcdatamodeld */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		C47605CD297CF8E00072726D /* DataManagement */ = {
+			isa = PBXGroup;
+			children = (
+				C47605CA297CF0B80072726D /* Main.xcdatamodeld */,
+				C47605CE297CF8F80072726D /* PersistenceController.swift */,
+			);
+			path = DataManagement;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,6 +292,7 @@
 				C4760571297CE7100072726D /* ContentView.swift in Sources */,
 				C47605CC297CF0B80072726D /* Main.xcdatamodeld in Sources */,
 				C476056F297CE7100072726D /* simple_notesApp.swift in Sources */,
+				C47605CF297CF8F80072726D /* PersistenceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
