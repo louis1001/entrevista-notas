@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NotaListItem: View {
-    @ObservedObject var nota: Nota
+    @ObservedObject var nota: NotaEntity
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -29,8 +29,8 @@ struct NotaListItem: View {
 }
 
 struct ContentView: View {
-    @State var selection: Nota? = nil
-    @FetchRequest(sortDescriptors: [SortDescriptor(\.ultimaEdicion)]) var notas: FetchedResults<Nota>
+    @State var selection: NotaEntity? = nil
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.ultimaEdicion)]) var notas: FetchedResults<NotaEntity>
     
     
     var body: some View {
