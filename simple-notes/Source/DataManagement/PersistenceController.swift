@@ -11,11 +11,9 @@ import Foundation
 class PersistenceController: ObservableObject {
     static let shared = PersistenceController()
     
-    let container: NSPersistentContainer
+    let container: NSPersistentContainer = NSPersistentContainer(name: "Main")
     
     init(inMemory: Bool = false) {
-        container = NSPersistentContainer(name: "Main")
-        
         if inMemory {
             container.persistentStoreDescriptions.first?.url = URL(fileURLWithPath: "/dev/null")
         }

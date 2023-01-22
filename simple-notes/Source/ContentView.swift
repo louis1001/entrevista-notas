@@ -7,21 +7,50 @@
 
 import SwiftUI
 
+struct NotaEditor: View {
+    @State var nota: Nota
+    var saveAction: (Nota)->Void
+    
+    var body: some View {
+        VStack {
+            TextField("Nueva Nota", text: $nota.titulo)
+                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+            
+            TextEditor(text: $nota.contenido)
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+        }
+        .padding()
+        .onChange(of: nota, perform: saveAction)
+    }
+}
+
 struct NotaListItem: View {
-    @ObservedObject var nota: NotaEntity
+    var nota: Nota
+    
+    private var titulo: String {
+        nota.titulo.isEmpty
+        ? "Nueva nota"
+        : nota.titulo
+    }
+    
+    private var contenido: String {
+        nota.contenido.isEmpty
+        ? "Sin contenido"
+        : nota.contenido
+    }
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(nota.titulo ?? "Nueva nota")
+            Text(titulo + " ")
                 .font(.title2)
                 .bold()
             
-            Text((nota.contenido ?? "sin contenido") + "\n\n")
+            Text((contenido) + "\n\n")
                 .font(.system(size: 10))
                 .lineLimit(2)
                 .opacity(0.7)
             
-            Text((nota.ultimaEdicion ?? .now).formatted())
+            Text((nota.ultimaEdicion).formatted())
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
                 .font(.footnote)
         }
@@ -29,32 +58,36 @@ struct NotaListItem: View {
 }
 
 struct ContentView: View {
-    @State var selection: NotaEntity? = nil
-    @FetchRequest(sortDescriptors: [SortDescriptor(\.ultimaEdicion)]) var notas: FetchedResults<NotaEntity>
-    
+    @State var selection: Nota? = nil
+    @StateObject var viewModel = ViewModel()
+    @Environment(\.managedObjectContext) var moc
     
     var body: some View {
         NavigationSplitView {
             List(selection: $selection) {
-                ForEach(notas, id: \.id) { nota in
+                ForEach(viewModel.notas, id: \.id) { nota in
                     NavigationLink(value: nota) {
                         NotaListItem(nota: nota)
                     }
                 }
+                .onDelete(perform: viewModel.deleteNota)
+            }
+            .toolbar {
+                Button {
+                    viewModel.newNota()
+                } label: {
+                    Image(systemName: "plus")
+                }
             }
         } detail: {
             if let selection {
-                VStack {
-                    Text(selection.titulo ?? "")
-                        .font(.title2)
-                        .bold()
-                    ScrollView {
-                        Text(selection.contenido ?? "")
-                            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
-                    }
-                }
-                .padding()
+                NotaEditor(nota: selection, saveAction: viewModel.updateNota)
+                    .id(selection.id)
             }
+        }
+        .searchable(text: $viewModel.searchQuery)
+        .onAppear {
+            viewModel.setContext(moc)
         }
     }
 }
