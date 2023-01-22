@@ -16,6 +16,7 @@
 		C476058D297CE7120072726D /* simple_notesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C476058C297CE7120072726D /* simple_notesUITestsLaunchTests.swift */; };
 		C47605CC297CF0B80072726D /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C47605CA297CF0B80072726D /* Main.xcdatamodeld */; };
 		C47605CF297CF8F80072726D /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47605CE297CF8F80072726D /* PersistenceController.swift */; };
+		C47605D2297CFE610072726D /* PersistenceController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47605D1297CFE610072726D /* PersistenceController+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		C476058C297CE7120072726D /* simple_notesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = simple_notesUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		C47605CB297CF0B80072726D /* Notas.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Notas.xcdatamodel; sourceTree = "<group>"; };
 		C47605CE297CF8F80072726D /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		C47605D1297CFE610072726D /* PersistenceController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersistenceController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				C4760576297CE7120072726D /* Preview Assets.xcassets */,
+				C47605D1297CFE610072726D /* PersistenceController+Extension.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C47605D2297CFE610072726D /* PersistenceController+Extension.swift in Sources */,
 				C4760571297CE7100072726D /* ContentView.swift in Sources */,
 				C47605CC297CF0B80072726D /* Main.xcdatamodeld in Sources */,
 				C476056F297CE7100072726D /* simple_notesApp.swift in Sources */,

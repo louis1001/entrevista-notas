@@ -7,20 +7,63 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct NotaListItem: View {
+    @ObservedObject var nota: Nota
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        VStack(alignment: .leading) {
+            Text(nota.titulo ?? "Nueva nota")
+                .font(.title2)
+                .bold()
+            
+            Text((nota.contenido ?? "sin contenido") + "\n\n")
+                .font(.system(size: 10))
+                .lineLimit(2)
+                .opacity(0.7)
+            
+            Text((nota.ultimaEdicion ?? .now).formatted())
+                .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
+                .font(.footnote)
         }
-        .padding()
+    }
+}
+
+struct ContentView: View {
+    @State var selection: Nota? = nil
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.ultimaEdicion)]) var notas: FetchedResults<Nota>
+    
+    
+    var body: some View {
+        NavigationSplitView {
+            List(selection: $selection) {
+                ForEach(notas, id: \.id) { nota in
+                    NavigationLink(value: nota) {
+                        NotaListItem(nota: nota)
+                    }
+                }
+            }
+        } detail: {
+            if let selection {
+                VStack {
+                    Text(selection.titulo ?? "")
+                        .font(.title2)
+                        .bold()
+                    ScrollView {
+                        Text(selection.contenido ?? "")
+                            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
+                    }
+                }
+                .padding()
+            }
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
+    static let persistenceController = PersistenceController.preview
+    
     static var previews: some View {
         ContentView()
+            .environment(\.managedObjectContext, persistenceController.container.viewContext)
     }
 }
