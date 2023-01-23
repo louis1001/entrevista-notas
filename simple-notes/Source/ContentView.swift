@@ -57,10 +57,48 @@ struct NotaListItem: View {
     }
 }
 
+struct SortingPicker: View {
+    @Binding var currentSorting: NotasSorting
+    func row(for sort: NotasSorting.Option) -> some View {
+        Button {
+            if currentSorting.option == sort {
+                currentSorting.toggle()
+            } else {
+                currentSorting = NotasSorting(
+                    option: sort,
+                    ascending: sort.isAscendingByDefault
+                )
+            }
+        } label: {
+            let text = sort.rawValue.capitalized
+            if currentSorting.option == sort {
+                let arrowUpOrDown = currentSorting.ascending ? "arrow.up" : "arrow.down"
+                Label(text, systemImage: arrowUpOrDown)
+                    .labelStyle(.titleAndIcon)
+            } else {
+                Text(text)
+            }
+        }
+    }
+    
+    var body: some View {
+        Menu {
+            ForEach(NotasSorting.Option.allCases, id: \.rawValue) {sort in
+                row(for: sort)
+            }
+        } label: {
+            Image(systemName: "arrow.up.arrow.down")
+        }
+        .menuStyle(.button)
+    }
+}
+
 struct ContentView: View {
     @State var selection: Nota? = nil
     @StateObject var viewModel = ViewModel()
     @Environment(\.managedObjectContext) var moc
+    
+    @State private var pickingSort = false
     
     var body: some View {
         NavigationSplitView {
@@ -73,10 +111,14 @@ struct ContentView: View {
                 .onDelete(perform: viewModel.deleteNota)
             }
             .toolbar {
-                Button {
-                    viewModel.newNota()
-                } label: {
-                    Image(systemName: "plus")
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    SortingPicker(currentSorting: $viewModel.sorting)
+                    
+                    Button {
+                        viewModel.newNota()
+                    } label: {
+                        Image(systemName: "plus")
+                    }
                 }
             }
         } detail: {

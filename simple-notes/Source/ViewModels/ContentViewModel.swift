@@ -5,6 +5,7 @@
 //  Created by Luis Gonzalez on 22/1/23.
 //
 
+import SwiftUI
 import Combine
 import CoreData
 import CoreDataRepository
@@ -18,6 +19,15 @@ extension ContentView {
                 delayedSearch.attempt(searchQuery)
             }
         }
+        private var request: NotaRequest {
+            searchQuery.isEmpty ? .all : .search(searchQuery)
+        }
+        
+        @AppStorage("notasOrderBy") var sorting = NotasSorting.porFecha {
+            didSet {
+                setQuery(request)
+            }
+        }
         
         private let delayedSearch = DelayedSave<String>()
         private let delayedNotaSaving = DelayedSave<Nota>()
@@ -29,8 +39,10 @@ extension ContentView {
         
         init() {
             delayedSearch.saveAction = {[weak self] term in
+                guard let self else { return }
+                
                 let query: NotaRequest = term.isEmpty ? .all : .search(term)
-                self?.setQuery(query)
+                self.setQuery(query)
             }
             
             delayedNotaSaving.saveAction = {[weak self] nota in
@@ -50,7 +62,7 @@ extension ContentView {
                 
                 if isFirst {
                     // A bug on iPad when there's no notes added. Refresh data
-                    setQuery(searchQuery.isEmpty ? .all : .search(searchQuery))
+                    setQuery(request)
                 }
             }
         }
@@ -79,7 +91,7 @@ extension ContentView {
             
             cancellable?.cancel() // Cancel the previous subscription
             
-            let request = query.fetchRequest
+            let request = query.fetchRequest(with: sorting)
             let result: AnyPublisher<[Nota], CoreDataRepositoryError> = repository
                 .fetchSubscription(request)
             
@@ -113,7 +125,7 @@ extension ContentView.ViewModel {
         case all
         case search(String)
         
-        var fetchRequest: NSFetchRequest<NotaEntity> {
+        func fetchRequest(with sorting: NotasSorting) -> NSFetchRequest<NotaEntity> {
             let fetchRequest = NotaEntity.fetchRequest() as! NSFetchRequest<NotaEntity>
             
             switch self {
@@ -124,9 +136,24 @@ extension ContentView.ViewModel {
                 fetchRequest.predicate = predicate
             }
             
-            fetchRequest.sortDescriptors = [
-                NSSortDescriptor(keyPath: \NotaEntity.ultimaEdicion, ascending: false)
-            ]
+            let sortDescriptors: [NSSortDescriptor]
+            
+            switch sorting.option {
+            case .titulo:
+                sortDescriptors = [
+                    NSSortDescriptor(keyPath: \NotaEntity.titulo, ascending: sorting.ascending)
+                ]
+            case .contenido:
+                sortDescriptors = [
+                    NSSortDescriptor(keyPath: \NotaEntity.contenido, ascending: sorting.ascending)
+                ]
+            case .fecha:
+                sortDescriptors = [
+                    NSSortDescriptor(keyPath: \NotaEntity.ultimaEdicion, ascending: sorting.ascending)
+                ]
+            }
+            
+            fetchRequest.sortDescriptors = sortDescriptors
             
             return fetchRequest
         }

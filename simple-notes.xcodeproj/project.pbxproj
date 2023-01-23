@@ -26,6 +26,7 @@
 		C47605F0297D8C700072726D /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47605EF297D8C700072726D /* ContentViewModel.swift */; };
 		C47605F3297DC6890072726D /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C47605F1297DC6890072726D /* Main.xcdatamodeld */; };
 		C47605F6297DCEED0072726D /* DelayedSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47605F5297DCEED0072726D /* DelayedSave.swift */; };
+		C47605F8297E12120072726D /* NotasSorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47605F7297E12120072726D /* NotasSorting.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		C47605EF297D8C700072726D /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		C47605F2297DC6890072726D /* Main.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Main.xcdatamodel; sourceTree = "<group>"; };
 		C47605F5297DCEED0072726D /* DelayedSave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayedSave.swift; sourceTree = "<group>"; };
+		C47605F7297E12120072726D /* NotasSorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotasSorting.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				C47605EF297D8C700072726D /* ContentViewModel.swift */,
+				C47605F7297E12120072726D /* NotasSorting.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				C4760571297CE7100072726D /* ContentView.swift in Sources */,
 				C47605F6297DCEED0072726D /* DelayedSave.swift in Sources */,
 				C47605E9297D82D40072726D /* NotaEntity.swift in Sources */,
+				C47605F8297E12120072726D /* NotasSorting.swift in Sources */,
 				C47605F0297D8C700072726D /* ContentViewModel.swift in Sources */,
 				C47605F3297DC6890072726D /* Main.xcdatamodeld in Sources */,
 				C47605E6297D827C0072726D /* NotaEntity+RepositoryManagedModel.swift in Sources */,
