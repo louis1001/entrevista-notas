@@ -95,7 +95,7 @@ struct SortingPicker: View {
 
 struct ContentView: View {
     @State var selection: Nota? = nil
-    @StateObject var viewModel = ViewModel()
+    @StateObject var viewModel = NotasViewModel()
     @Environment(\.managedObjectContext) var moc
     
     @State private var pickingSort = false
@@ -108,14 +108,16 @@ struct ContentView: View {
                         NotaListItem(nota: nota)
                     }
                 }
-                .onDelete(perform: viewModel.deleteNota)
+                .onDelete { indexSet in
+                    Task { await viewModel.deleteNota(indexSet) }
+                }
             }
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     SortingPicker(currentSorting: $viewModel.sorting)
                     
                     Button {
-                        viewModel.newNota()
+                        Task { await viewModel.newNota() }
                     } label: {
                         Image(systemName: "plus")
                     }
@@ -123,7 +125,7 @@ struct ContentView: View {
             }
         } detail: {
             if let selection {
-                NotaEditor(nota: selection, saveAction: viewModel.updateNota)
+                NotaEditor(nota: selection, saveAction: { viewModel.updateNota($0) })
                     .id(selection.id)
             }
         }

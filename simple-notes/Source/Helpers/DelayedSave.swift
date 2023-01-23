@@ -33,9 +33,13 @@ class DelayedSave<T>: ObservableObject {
         }
     }
     
-    func attempt(_ item: T) {
+    func attempt(_ item: T, force: Bool = false) {
         self.lastItem = item
         shortTimer?.invalidate()
+        if force {
+            doSave(item)
+            return
+        }
         shortTimer = Timer.scheduledTimer(withTimeInterval: self.waitTime, repeats: false) {[weak self] _ in
             self?.doSave(item)
         }
