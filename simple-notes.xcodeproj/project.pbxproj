@@ -14,6 +14,19 @@
 		C4760581297CE7120072726D /* simple_notesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4760580297CE7120072726D /* simple_notesTests.swift */; };
 		C476058B297CE7120072726D /* simple_notesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C476058A297CE7120072726D /* simple_notesUITests.swift */; };
 		C476058D297CE7120072726D /* simple_notesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C476058C297CE7120072726D /* simple_notesUITestsLaunchTests.swift */; };
+		C47605CF297CF8F80072726D /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47605CE297CF8F80072726D /* PersistenceController.swift */; };
+		C47605D2297CFE610072726D /* PersistenceController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47605D1297CFE610072726D /* PersistenceController+Extension.swift */; };
+		C47605D5297D6D7E0072726D /* PredicateKit in Frameworks */ = {isa = PBXBuildFile; productRef = C47605D4297D6D7E0072726D /* PredicateKit */; };
+		C47605D8297D717B0072726D /* LoremSwiftum in Frameworks */ = {isa = PBXBuildFile; productRef = C47605D7297D717B0072726D /* LoremSwiftum */; };
+		C47605DE297D81620072726D /* CoreDataRepository in Frameworks */ = {isa = PBXBuildFile; productRef = C47605DD297D81620072726D /* CoreDataRepository */; };
+		C47605E2297D81B00072726D /* NotaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47605E1297D81B00072726D /* NotaModel.swift */; };
+		C47605E6297D827C0072726D /* NotaEntity+RepositoryManagedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47605E5297D827C0072726D /* NotaEntity+RepositoryManagedModel.swift */; };
+		C47605E9297D82D40072726D /* NotaEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47605E8297D82D40072726D /* NotaEntity.swift */; };
+		C47605ED297D83E10072726D /* NotaModel+UnmanagedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47605EC297D83E10072726D /* NotaModel+UnmanagedModel.swift */; };
+		C47605F0297D8C700072726D /* NotasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47605EF297D8C700072726D /* NotasViewModel.swift */; };
+		C47605F3297DC6890072726D /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C47605F1297DC6890072726D /* Main.xcdatamodeld */; };
+		C47605F6297DCEED0072726D /* DelayedSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47605F5297DCEED0072726D /* DelayedSave.swift */; };
+		C47605F8297E12120072726D /* NotasSorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47605F7297E12120072726D /* NotasSorting.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +58,16 @@
 		C4760586297CE7120072726D /* simple-notesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "simple-notesUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C476058A297CE7120072726D /* simple_notesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = simple_notesUITests.swift; sourceTree = "<group>"; };
 		C476058C297CE7120072726D /* simple_notesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = simple_notesUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C47605CE297CF8F80072726D /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		C47605D1297CFE610072726D /* PersistenceController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersistenceController+Extension.swift"; sourceTree = "<group>"; };
+		C47605E1297D81B00072726D /* NotaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotaModel.swift; sourceTree = "<group>"; };
+		C47605E5297D827C0072726D /* NotaEntity+RepositoryManagedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotaEntity+RepositoryManagedModel.swift"; sourceTree = "<group>"; };
+		C47605E8297D82D40072726D /* NotaEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotaEntity.swift; sourceTree = "<group>"; };
+		C47605EC297D83E10072726D /* NotaModel+UnmanagedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotaModel+UnmanagedModel.swift"; sourceTree = "<group>"; };
+		C47605EF297D8C700072726D /* NotasViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotasViewModel.swift; sourceTree = "<group>"; };
+		C47605F2297DC6890072726D /* Main.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Main.xcdatamodel; sourceTree = "<group>"; };
+		C47605F5297DCEED0072726D /* DelayedSave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayedSave.swift; sourceTree = "<group>"; };
+		C47605F7297E12120072726D /* NotasSorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotasSorting.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +75,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C47605DE297D81620072726D /* CoreDataRepository in Frameworks */,
+				C47605D8297D717B0072726D /* LoremSwiftum in Frameworks */,
+				C47605D5297D6D7E0072726D /* PredicateKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				C4760576297CE7120072726D /* Preview Assets.xcassets */,
+				C47605D1297CFE610072726D /* PersistenceController+Extension.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -140,9 +167,58 @@
 		C476059A297CE7AD0072726D /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				C47605F4297DCEDF0072726D /* Helpers */,
+				C47605EE297D8C240072726D /* ViewModels */,
+				C47605CD297CF8E00072726D /* DataManagement */,
 				C4760570297CE7100072726D /* ContentView.swift */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		C47605CD297CF8E00072726D /* DataManagement */ = {
+			isa = PBXGroup;
+			children = (
+				C47605E7297D82C60072726D /* Entities */,
+				C47605E0297D81A50072726D /* Models */,
+				C47605CE297CF8F80072726D /* PersistenceController.swift */,
+				C47605F1297DC6890072726D /* Main.xcdatamodeld */,
+			);
+			path = DataManagement;
+			sourceTree = "<group>";
+		};
+		C47605E0297D81A50072726D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C47605E1297D81B00072726D /* NotaModel.swift */,
+				C47605EC297D83E10072726D /* NotaModel+UnmanagedModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C47605E7297D82C60072726D /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				C47605E8297D82D40072726D /* NotaEntity.swift */,
+				C47605E5297D827C0072726D /* NotaEntity+RepositoryManagedModel.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		C47605EE297D8C240072726D /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				C47605EF297D8C700072726D /* NotasViewModel.swift */,
+				C47605F7297E12120072726D /* NotasSorting.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		C47605F4297DCEDF0072726D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C47605F5297DCEED0072726D /* DelayedSave.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,6 +237,11 @@
 			dependencies = (
 			);
 			name = "simple-notes";
+			packageProductDependencies = (
+				C47605D4297D6D7E0072726D /* PredicateKit */,
+				C47605D7297D717B0072726D /* LoremSwiftum */,
+				C47605DD297D81620072726D /* CoreDataRepository */,
+			);
 			productName = "simple-notes";
 			productReference = C476056B297CE7100072726D /* simple-notes.app */;
 			productType = "com.apple.product-type.application";
@@ -233,6 +314,11 @@
 				Base,
 			);
 			mainGroup = C4760562297CE7100072726D;
+			packageReferences = (
+				C47605D3297D6D7E0072726D /* XCRemoteSwiftPackageReference "PredicateKit" */,
+				C47605D6297D717B0072726D /* XCRemoteSwiftPackageReference "LoremSwiftum" */,
+				C47605DC297D81620072726D /* XCRemoteSwiftPackageReference "CoreDataRepository" */,
+			);
 			productRefGroup = C476056C297CE7100072726D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -275,8 +361,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C47605D2297CFE610072726D /* PersistenceController+Extension.swift in Sources */,
 				C4760571297CE7100072726D /* ContentView.swift in Sources */,
+				C47605F6297DCEED0072726D /* DelayedSave.swift in Sources */,
+				C47605E9297D82D40072726D /* NotaEntity.swift in Sources */,
+				C47605F8297E12120072726D /* NotasSorting.swift in Sources */,
+				C47605F0297D8C700072726D /* NotasViewModel.swift in Sources */,
+				C47605F3297DC6890072726D /* Main.xcdatamodeld in Sources */,
+				C47605E6297D827C0072726D /* NotaEntity+RepositoryManagedModel.swift in Sources */,
+				C47605ED297D83E10072726D /* NotaModel+UnmanagedModel.swift in Sources */,
+				C47605E2297D81B00072726D /* NotaModel.swift in Sources */,
 				C476056F297CE7100072726D /* simple_notesApp.swift in Sources */,
+				C47605CF297CF8F80072726D /* PersistenceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -628,6 +724,64 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C47605D3297D6D7E0072726D /* XCRemoteSwiftPackageReference "PredicateKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ftchirou/PredicateKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		C47605D6297D717B0072726D /* XCRemoteSwiftPackageReference "LoremSwiftum" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lukaskubanek/LoremSwiftum.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.1;
+			};
+		};
+		C47605DC297D81620072726D /* XCRemoteSwiftPackageReference "CoreDataRepository" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/roanutil/CoreDataRepository";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C47605D4297D6D7E0072726D /* PredicateKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C47605D3297D6D7E0072726D /* XCRemoteSwiftPackageReference "PredicateKit" */;
+			productName = PredicateKit;
+		};
+		C47605D7297D717B0072726D /* LoremSwiftum */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C47605D6297D717B0072726D /* XCRemoteSwiftPackageReference "LoremSwiftum" */;
+			productName = LoremSwiftum;
+		};
+		C47605DD297D81620072726D /* CoreDataRepository */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C47605DC297D81620072726D /* XCRemoteSwiftPackageReference "CoreDataRepository" */;
+			productName = CoreDataRepository;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		C47605F1297DC6890072726D /* Main.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C47605F2297DC6890072726D /* Main.xcdatamodel */,
+			);
+			currentVersion = C47605F2297DC6890072726D /* Main.xcdatamodel */;
+			path = Main.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C4760563297CE7100072726D /* Project object */;
 }
