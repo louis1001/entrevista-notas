@@ -66,7 +66,7 @@ struct NotaList: View {
 #if os(macOS)
         .contextMenu {
             Label("Delete", systemImage: "trash")
-                .asButton { delete(indice: i) }
+                .asButton { delete(indice: indice) }
         }
 #endif
     }

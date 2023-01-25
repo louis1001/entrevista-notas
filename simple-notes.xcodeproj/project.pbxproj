@@ -11,6 +11,7 @@
 		C40057542980B9BA00D7A467 /* NotaListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40057532980B9BA00D7A467 /* NotaListItem.swift */; };
 		C40057562980BD4700D7A467 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40057552980BD4700D7A467 /* Constants.swift */; };
 		C40057582980BEF200D7A467 /* CustomizableTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40057572980BEF200D7A467 /* CustomizableTextView.swift */; };
+		C400575A2980C33400D7A467 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40057592980C33400D7A467 /* Color+Extensions.swift */; };
 		C476056F297CE7100072726D /* simple_notesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C476056E297CE7100072726D /* simple_notesApp.swift */; };
 		C4760571297CE7100072726D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4760570297CE7100072726D /* ContentView.swift */; };
 		C4760573297CE7120072726D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4760572297CE7120072726D /* Assets.xcassets */; };
@@ -63,6 +64,7 @@
 		C40057532980B9BA00D7A467 /* NotaListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotaListItem.swift; sourceTree = "<group>"; };
 		C40057552980BD4700D7A467 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C40057572980BEF200D7A467 /* CustomizableTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizableTextView.swift; sourceTree = "<group>"; };
+		C40057592980C33400D7A467 /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		C476056B297CE7100072726D /* simple-notes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "simple-notes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C476056E297CE7100072726D /* simple_notesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = simple_notesApp.swift; sourceTree = "<group>"; };
 		C4760570297CE7100072726D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 			children = (
 				C4760601297F15620072726D /* View+Extensions.swift */,
 				C4760606297F68120072726D /* Array+Extensions.swift */,
+				C40057592980C33400D7A467 /* Color+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -442,6 +445,7 @@
 				C476056F297CE7100072726D /* simple_notesApp.swift in Sources */,
 				C4760602297F15620072726D /* View+Extensions.swift in Sources */,
 				C47605CF297CF8F80072726D /* PersistenceController.swift in Sources */,
+				C400575A2980C33400D7A467 /* Color+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
