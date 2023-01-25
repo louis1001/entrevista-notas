@@ -24,7 +24,11 @@ struct NotaEditor: View {
             topSection
                 .padding(.horizontal)
                 .padding(.bottom, 5)
-                .toolbar { toolbarItems }
+                .toolbar {
+                    ToolbarItemGroup(placement: .primaryAction) {
+                        toolbarItems
+                    }
+                }
             
             if !wideScreen {
                 Divider()
@@ -107,12 +111,10 @@ private extension NotaEditor {
 
 // MARK: Toolbar Items
 private extension NotaEditor {
-    var toolbarItems: some ToolbarContent {
+    var toolbarItems: some View {
         Group {
             if !wideScreen {
-                ToolbarItem {
-                    fecha
-                }
+                fecha
             }
             shareAction
         }
@@ -125,11 +127,9 @@ private extension NotaEditor {
         "\(nota.titulo)\n\n\(nota.contenido)"
     }
     
-    var shareAction: some ToolbarContent {
-        ToolbarItem {
-            ShareLink(items: [notaAsText]) {
-                Image(systemName: "square.and.arrow.up")
-            }
+    var shareAction: some View {
+        ShareLink(items: [notaAsText]) {
+            Image(systemName: "square.and.arrow.up")
         }
     }
 }
