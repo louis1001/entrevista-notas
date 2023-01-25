@@ -15,3 +15,9 @@ public struct Nota: Hashable {
     var ultimaEdicion: Date = .now
     var url: URL?
 }
+
+extension Nota {
+    var noHaSidoEditada: Bool {
+        ultimaEdicion == fecha
+    }
+}

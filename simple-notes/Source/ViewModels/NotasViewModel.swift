@@ -67,6 +67,16 @@ extension NotasViewModel {
     // Create
     @discardableResult
     func newNota() async -> Nota? {
+        if let index = notas.firstIndex(where: { $0.noHaSidoEditada }) {
+            // Si hay una nota que es nueva y no ha sido editada
+            
+            // Si se está buscando, cancelar la busqueda
+            searchQuery = ""
+            
+            // Retornar la nota que ya existe
+            return notas[index]
+        }
+        
         let nota = Nota(id: UUID(), titulo: "", contenido: "")
         
         let result = await repository.create(nota)
