@@ -13,115 +13,136 @@ import PredicateKit
 
 @MainActor
 class NotasViewModel: ObservableObject {
+    // MARK: Published Variables
     @Published var notas: [Nota] = []
     @Published var searchQuery = "" {
         didSet {
-            delayedSearch.attempt(searchQuery)
+            Task { await self.delayedSearch.attempt(searchQuery) }
         }
     }
-    private var request: NotaRequest {
+    
+    private var filter: NotaRequest {
         searchQuery.isEmpty ? .all : .search(searchQuery)
     }
     
     @AppStorage("notasOrderBy") var sorting = NotasSorting.porFecha {
         didSet {
-            setQuery(request)
+            Task { await self.refreshNotas(with: filter) }
         }
     }
     
+    // MARK: Private Properties
     private let delayedSearch = DelayedSave<String>()
     private let delayedNotaSaving = DelayedSave<Nota>()
     
-    private var repository: CoreDataRepository?
-    private var cancellable: AnyCancellable?
+    private let backgroundQueue = DispatchQueue(label: "background-data-queue", qos: .userInitiated)
+    private let repository: CoreDataRepository
     
-    private var query: NotaRequest = .all
-    
-    init() {
-        delayedSearch.saveAction = {[weak self] term in
-            guard let self else { return }
+    // MARK: Setup
+    init(persistence: PersistenceController? = nil) {
+        let persistence = persistence ?? PersistenceController()
+        let context = backgroundQueue.sync {
+            let context = persistence.container.newBackgroundContext()
             
-            let query: NotaRequest = term.isEmpty ? .all : .search(term)
-            self.setQuery(query)
+            context.automaticallyMergesChangesFromParent = true
+            return context
+        }
+        
+        repository = CoreDataRepository(context: context)
+        
+        delayedSearch.saveAction = {[weak self] term in
+            await self?.commitSearch(term)
         }
         
         delayedNotaSaving.saveAction = {[weak self] nota in
-            var nota = nota
-            nota.ultimaEdicion = .now
-            // Si falla no tengo mucho que hacer.
-            let _ = await self?.repository?.update([nota])
+            await self?.commitSave(nota)
         }
+        
+        Task { await self.refreshNotas(with: .all) }
     }
-    
+}
+
+// MARK: - CRUD
+extension NotasViewModel {
+    // Create
     @discardableResult
     func newNota() async -> Nota? {
-        let isFirst = notas.isEmpty
         let nota = Nota(id: UUID(), titulo: "", contenido: "")
         
-        let result = await repository?.create(nota)
+        let result = await repository.create(nota)
         
-        if isFirst {
-            // A bug on iPad when there's no notes added. Refresh data
-            setQuery(request)
-        }
-        
+        // Evitar llamar refresh y consultar core data de nuevo.
+        // actualizar los datos actuales con la respuesta de .create
         switch result {
-        case .success(let nota): return nota
+        case .success(let nota):
+            notas.insert(nota, at: 0)
+            return nota
         case .failure(let error):
             print(error.localizedDescription)
-            return nil
-        default:
-            return nil
+        }
+        
+        return nil
+    }
+    
+    // Read
+    func refreshNotas(with filter: NotaRequest) async {
+        let request = filter.fetchRequest(with: sorting)
+        
+        let result: Result<[Nota], _> = await repository.fetch(request)
+        
+        switch result {
+        case .success(let notas): self.notas = notas
+        case .failure(let error): print("Error fetching notas:\n\(error.localizedDescription)")
         }
     }
     
+    // Update
+    func updateNota(_ nota: Nota, force: Bool = false) async {
+        await delayedNotaSaving.attempt(nota, force: force)
+    }
+    
+    // Delete
     func deleteNota(_ indices: IndexSet) async {
         let urls = indices
             .compactMap { notas[$0].url }
         
-        notas.remove(atOffsets: indices)
+        let result = await repository.delete(urls: urls)
         
-        let _ = await repository?.delete(urls: urls)
-    }
-    
-    func updateNota(_ nota: Nota, force: Bool = false) {
-        delayedNotaSaving.attempt(nota, force: force)
-    }
-    
-    private func setQuery(_ query: NotaRequest) {
-        guard let repository else {
-            fatalError("Trying to set the fetch query")
-        }
-        
-        self.query = query
-        
-        cancellable?.cancel() // Cancel the previous subscription
-        
-        let request = query.fetchRequest(with: sorting)
-        let result: AnyPublisher<[Nota], CoreDataRepositoryError> = repository
-            .fetchSubscription(request)
-        
-        cancellable = result.subscribe(on: DispatchQueue.main)
-            .receive(on: RunLoop.main)
-            .sink { completion in
-                switch completion {
-                case .finished:
-                    // log
-                    break
-                default:
-                    fatalError("Failed fetch of data")
-                }
-            } receiveValue: {[weak self] value in
-                // store in published notas
-                self?.notas = value
-                print(value.map(\.titulo))
+        // En lugar de llamar refresh, utilizar el resultado de .delete
+        // para actualizar el estado actual
+        if result.failed.isEmpty {
+            notas.remove(atOffsets: indices)
+        } else {
+            for url in result.success {
+                // Solo remover las que ya no están en core data
+                notas.removeAll { $0.url == url }
             }
+        }
+    }
+}
+
+// MARK: - Delayed Actions
+extension NotasViewModel {
+    // Para evitar muchas actualizaciones frecuentes,
+    // se llama a estas funciones con un buffer
+    
+    private func commitSearch(_ term: String) async {
+        let filter: NotaRequest = term.isEmpty ? .all : .search(term)
+        
+        await self.refreshNotas(with: filter)
     }
     
-    func setContext(_ context: NSManagedObjectContext) {
-        repository = CoreDataRepository(context: context)
+    private func commitSave(_ nota: Nota) async {
+        var nota = nota
+        nota.ultimaEdicion = .now
         
-        setQuery(.all)
+        let result = await repository.update([nota])
+        
+        if result.failed.isEmpty {
+            await refreshNotas(with: filter)
+        } else {
+            NSLog("Error updating the nota %@", nota.id.uuidString)
+        }
     }
 }
 

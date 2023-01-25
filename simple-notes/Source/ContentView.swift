@@ -96,7 +96,6 @@ struct SortingPicker: View {
 struct ContentView: View {
     @State var selection: Nota? = nil
     @StateObject var viewModel = NotasViewModel()
-    @Environment(\.managedObjectContext) var moc
     
     @State private var pickingSort = false
     
@@ -113,7 +112,7 @@ struct ContentView: View {
                 }
             }
             .toolbar {
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                ToolbarItemGroup(placement: .primaryAction) {
                     SortingPicker(currentSorting: $viewModel.sorting)
                     
                     Button {
@@ -125,22 +124,20 @@ struct ContentView: View {
             }
         } detail: {
             if let selection {
-                NotaEditor(nota: selection, saveAction: { viewModel.updateNota($0) })
+                NotaEditor(nota: selection) { nota in
+                    Task {
+                        await viewModel.updateNota(nota)
+                    }
+                }
                     .id(selection.id)
             }
         }
         .searchable(text: $viewModel.searchQuery)
-        .onAppear {
-            viewModel.setContext(moc)
-        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static let persistenceController = PersistenceController.preview
-    
     static var previews: some View {
         ContentView()
-            .environment(\.managedObjectContext, persistenceController.container.viewContext)
     }
 }

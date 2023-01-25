@@ -27,6 +27,7 @@
 		C47605F3297DC6890072726D /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C47605F1297DC6890072726D /* Main.xcdatamodeld */; };
 		C47605F6297DCEED0072726D /* DelayedSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47605F5297DCEED0072726D /* DelayedSave.swift */; };
 		C47605F8297E12120072726D /* NotasSorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47605F7297E12120072726D /* NotasSorting.swift */; };
+		C47605FA297E24080072726D /* DataPersistanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47605F9297E24080072726D /* DataPersistanceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		C47605F2297DC6890072726D /* Main.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Main.xcdatamodel; sourceTree = "<group>"; };
 		C47605F5297DCEED0072726D /* DelayedSave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayedSave.swift; sourceTree = "<group>"; };
 		C47605F7297E12120072726D /* NotasSorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotasSorting.swift; sourceTree = "<group>"; };
+		C47605F9297E24080072726D /* DataPersistanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistanceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				C4760580297CE7120072726D /* simple_notesTests.swift */,
+				C47605F9297E24080072726D /* DataPersistanceTests.swift */,
 			);
 			path = "simple-notesTests";
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4760581297CE7120072726D /* simple_notesTests.swift in Sources */,
+				C47605FA297E24080072726D /* DataPersistanceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,38 +17,55 @@ class DelayedSave<T>: ObservableObject {
     private var lastItem: T?
     
     private var shortTimer: Timer?
-    private var recurrentTimer: Timer!
+    private var recurrentTimer: Timer?
     
     var saveAction: (T) async ->Void = {_ in }
     
-    init(waitTime: TimeInterval = 0.2, saveInterval: TimeInterval = 5) {
+    init(waitTime: TimeInterval = 0.2, saveInterval: TimeInterval = 2) {
         self.waitTime = waitTime
         self.saveInterval = saveInterval
+    }
+    
+    func attempt(_ item: T, force: Bool = false) async {
+        if self.lastItem == nil {
+            // Al inicio de una nueva edición, activar el backup
+            DispatchQueue.main.async { self.enableBackupTimer() }
+        }
         
+        self.lastItem = item
+        shortTimer?.invalidate()
+        if force {
+            await doSave(item)
+            return
+        }
+        
+        DispatchQueue.main.async { self.enableShorttermTimer(item) }
+    }
+    
+    func enableBackupTimer() {
         // En caso de que el usuario no pare de editar por bastante tiempo
-        recurrentTimer = Timer.scheduledTimer(withTimeInterval: saveInterval, repeats: true) {[weak self] _ in
+        self.recurrentTimer = Timer.scheduledTimer(withTimeInterval: self.saveInterval, repeats: false) {[weak self] _ in
             if let lastItem = self?.lastItem {
-                self?.doSave(lastItem)
+                Task {[weak self] in
+                    await self?.doSave(lastItem)
+                }
             }
         }
     }
     
-    func attempt(_ item: T, force: Bool = false) {
-        self.lastItem = item
-        shortTimer?.invalidate()
-        if force {
-            doSave(item)
-            return
-        }
-        shortTimer = Timer.scheduledTimer(withTimeInterval: self.waitTime, repeats: false) {[weak self] _ in
-            self?.doSave(item)
+    func enableShorttermTimer(_ item: T) {
+        self.shortTimer = Timer.scheduledTimer(withTimeInterval: self.waitTime, repeats: false) {[weak self] _ in
+            Task {[weak self] in
+                await self?.doSave(item)
+            }
         }
     }
     
-    private func doSave(_ item: T) {
-        Task {
-            await saveAction(item)
-        }
+    private func doSave(_ item: T) async {
+        recurrentTimer?.invalidate()
+        recurrentTimer = nil
+        
+        await saveAction(item)
         lastItem = nil
     }
 }

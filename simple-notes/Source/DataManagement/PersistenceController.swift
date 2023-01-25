@@ -9,31 +9,21 @@ import CoreData
 import Foundation
 
 class PersistenceController: ObservableObject {
-    static let shared = PersistenceController()
-    
-    let container: NSPersistentContainer = NSPersistentContainer(name: "Main")
+    let container: NSPersistentContainer
     
     init(inMemory: Bool = false) {
+        container = NSPersistentContainer(name: "Main")
         if inMemory {
-            container.persistentStoreDescriptions.first?.url = URL(fileURLWithPath: "/dev/null")
+            let psd = NSPersistentStoreDescription()
+            psd.type = NSInMemoryStoreType
+//            psd.url = URL(fileURLWithPath: "/dev/null")
+            
+            container.persistentStoreDescriptions = [psd]
         }
         
         container.loadPersistentStores { description, error in
             if let error {
                 fatalError("Error: \(error.localizedDescription)")
-            }
-        }
-    }
-    
-    func save() {
-        let context = container.viewContext
-        
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                // Handle error later
-                print(error.localizedDescription)
             }
         }
     }
