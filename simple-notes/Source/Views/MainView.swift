@@ -16,6 +16,7 @@ struct MainView: View {
     @State private var columnVisibility = NavigationSplitViewVisibility.automatic
     
     var body: some View {
+        // MARK: Navigation Split View
         NavigationSplitView(columnVisibility: $columnVisibility, sidebar: {sidebar}, detail: {detail})
         .searchable(text: $viewModel.searchQuery)
         #if os(macOS)
@@ -29,6 +30,7 @@ struct MainView: View {
         #endif
     }
     
+    // MARK: Side Bar
     var sidebar: some View {
         NotaList(viewModel: viewModel, selection: $selection)
 #if os(macOS)
@@ -39,6 +41,7 @@ struct MainView: View {
     .navigationTitle("Mis Notas")
     }
     
+    // MARK: Detail
     @ViewBuilder
     var detail: some View {
         if let selection {

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C40057512980AF4500D7A467 /* NotaRequestFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40057502980AF4500D7A467 /* NotaRequestFilter.swift */; };
+		C40057542980B9BA00D7A467 /* NotaListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40057532980B9BA00D7A467 /* NotaListItem.swift */; };
 		C476056F297CE7100072726D /* simple_notesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C476056E297CE7100072726D /* simple_notesApp.swift */; };
 		C4760571297CE7100072726D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4760570297CE7100072726D /* ContentView.swift */; };
 		C4760573297CE7120072726D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4760572297CE7120072726D /* Assets.xcassets */; };
@@ -57,6 +58,7 @@
 /* Begin PBXFileReference section */
 		C40057502980AF4500D7A467 /* NotaRequestFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotaRequestFilter.swift; sourceTree = "<group>"; };
 		C40057522980B61D00D7A467 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C40057532980B9BA00D7A467 /* NotaListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotaListItem.swift; sourceTree = "<group>"; };
 		C476056B297CE7100072726D /* simple-notes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "simple-notes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C476056E297CE7100072726D /* simple_notesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = simple_notesApp.swift; sourceTree = "<group>"; };
 		C4760570297CE7100072726D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				C4760604297F16D40072726D /* SortingPicker.swift */,
+				C40057532980B9BA00D7A467 /* NotaListItem.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 			files = (
 				C47605D2297CFE610072726D /* PersistenceController+Extension.swift in Sources */,
 				C47605FD297F13720072726D /* MainView.swift in Sources */,
+				C40057542980B9BA00D7A467 /* NotaListItem.swift in Sources */,
 				C4760605297F16D40072726D /* SortingPicker.swift in Sources */,
 				C4760571297CE7100072726D /* ContentView.swift in Sources */,
 				C4760609297F69580072726D /* NotaEditor.swift in Sources */,

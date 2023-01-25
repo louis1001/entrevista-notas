@@ -12,31 +12,68 @@ struct NotaList: View {
     @ObservedObject var viewModel: NotasViewModel
     @Binding var selection: Nota?
     
+    // MARK: macOS Header
+    private var macHeader: some View {
+        Text("Mis Notas")
+            .font(.title)
+            .bold()
+            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+            .multilineTextAlignment(.leading)
+            .padding(.horizontal)
+    }
+    
     var body: some View {
-        List(selection: $selection) {
-            ForEach(viewModel.notas.enumeratedList, id: \.element.id) { (i, nota) in
-                NavigationLink(value: nota) {
-                    NotaListItem(nota: nota, onDelete: { delete(indice: i) })
-                }
-            }
-            .onDelete { indexSet in
-                Task { await viewModel.deleteNota(indexSet)}
-            }
+        VStack {
+#if os(macOS)
+            macHeader
+#endif
+            
+            listContent.toolbar { toolbarItems }
         }
-        .toolbar {
-            toolbarItems
+        .overlay {
+            if viewModel.notas.isEmpty {
+                Text("Crea una nota")
+                    .opacity(0.8)
+                    .blendMode(.multiply)
+            }
         }
     }
     
-    private func delete(indice: Int) {
-        Task {
-            let indexSet = IndexSet(integer: indice)
-            await viewModel.deleteNota(indexSet)
+    // MARK: Items list
+    private var listContent: some View {
+        List(selection: $selection) {
+            ForEach(
+                viewModel.notas.enumeratedList,
+                id: \.element.id,
+                content: notaRow
+            )
+            .onDelete { indexSet in
+                Task { await viewModel.deleteNota(indexSet)}
+            }
+            
+            if viewModel.notas.isEmpty {
+                VStack{}
+                    .frame(minWidth: 0, maxWidth: .infinity)
+            }
         }
+    }
+    
+    // MARK: Item row
+    private func notaRow(indice: Int, nota: Nota) -> some View {
+        NavigationLink(value: nota) {
+            NotaListItem(nota: nota)
+        }
+#if os(macOS)
+        .contextMenu {
+            Label("Delete", systemImage: "trash")
+                .asButton { delete(indice: i) }
+        }
+#endif
     }
 }
 
-extension NotaList { // Toolbar
+// MARK: Toolbar elements
+private extension NotaList {
     var toolbarItems: some ToolbarContent {
         ToolbarItemGroup(placement: .primaryAction) {
             SortingPicker(currentSorting: $viewModel.sorting)
@@ -63,45 +100,12 @@ extension NotaList { // Toolbar
     }
 }
 
-struct NotaListItem: View {
-    var nota: Nota
-    var onDelete: ()->Void
-    
-    private var titulo: String {
-        nota.titulo.isEmpty
-        ? "Nueva nota"
-        : nota.titulo
-    }
-    
-    private var contenido: String {
-        nota.contenido.isEmpty
-        ? "Sin contenido"
-        : nota.contenido
-    }
-    
-    var body: some View {
-        VStack(alignment: .leading) {
-            Text(titulo)
-                .font(.title2)
-                .bold()
-            
-            // + "\n\n" Para que el Text siempre tenga la algura máxima de 2 lineas
-            Text(contenido + "\n\n")
-                .font(.system(size: 10))
-                .lineLimit(2)
-                .opacity(0.7)
-            
-            Text(nota.ultimaEdicion.formatted())
-                .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
-                .font(.footnote)
+// MARK: Functions
+private extension NotaList {
+    func delete(indice: Int) {
+        Task {
+            let indexSet = IndexSet(integer: indice)
+            await viewModel.deleteNota(indexSet)
         }
-#if os(macOS)
-        .contextMenu {
-            Label("Delete", systemImage: "trash")
-                .asButton {
-                    onDelete()
-                }
-        }
-#endif
     }
 }
