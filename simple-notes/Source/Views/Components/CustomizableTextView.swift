@@ -257,10 +257,24 @@ struct UIScrollableTextViewRepresentable: UIViewRepresentable {
         
         func setupDoneButton(on textView: UITextView) {
             let bar = UIToolbar()
-            let done = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(hideKeyboard))
-            bar.items = [done]
+            bar.isTranslucent = true
+            let spacer = UIBarButtonItem(systemItem: .flexibleSpace)
+            let done = UIBarButtonItem(title: "", image: UIImage(systemName: "keyboard.chevron.compact.down.fill"), target: self, action: #selector(hideKeyboard))
+            done.tintColor = .secondaryLabel
+            bar.items = [spacer, done]
+            bar.setBackgroundImage(UIImage(), forToolbarPosition: .any, barMetrics: .default)
+            bar.backgroundColor = .clear
             bar.sizeToFit()
-            textView.inputAccessoryView = bar
+            
+            let width = UIScreen.main.bounds.size.width //set width for toolbar
+            var frame = bar.frame
+            frame.size.width = width
+            bar.frame = frame
+            
+            let inputView = UIInputView(frame: bar.bounds, inputViewStyle: .keyboard)
+            inputView.addSubview(bar)
+            
+            textView.inputAccessoryView = inputView
             
             self.textView = textView
         }
