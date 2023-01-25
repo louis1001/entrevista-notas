@@ -21,7 +21,6 @@
 		C476058D297CE7120072726D /* simple_notesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C476058C297CE7120072726D /* simple_notesUITestsLaunchTests.swift */; };
 		C47605CF297CF8F80072726D /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47605CE297CF8F80072726D /* PersistenceController.swift */; };
 		C47605D2297CFE610072726D /* PersistenceController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47605D1297CFE610072726D /* PersistenceController+Extension.swift */; };
-		C47605D5297D6D7E0072726D /* PredicateKit in Frameworks */ = {isa = PBXBuildFile; productRef = C47605D4297D6D7E0072726D /* PredicateKit */; };
 		C47605D8297D717B0072726D /* LoremSwiftum in Frameworks */ = {isa = PBXBuildFile; productRef = C47605D7297D717B0072726D /* LoremSwiftum */; };
 		C47605DE297D81620072726D /* CoreDataRepository in Frameworks */ = {isa = PBXBuildFile; productRef = C47605DD297D81620072726D /* CoreDataRepository */; };
 		C47605E2297D81B00072726D /* NotaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47605E1297D81B00072726D /* NotaModel.swift */; };
@@ -93,6 +92,7 @@
 		C4760604297F16D40072726D /* SortingPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingPicker.swift; sourceTree = "<group>"; };
 		C4760606297F68120072726D /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		C4760608297F69580072726D /* NotaEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotaEditor.swift; sourceTree = "<group>"; };
+		C4C1A51A2981C4A400061371 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +102,6 @@
 			files = (
 				C47605DE297D81620072726D /* CoreDataRepository in Frameworks */,
 				C47605D8297D717B0072726D /* LoremSwiftum in Frameworks */,
-				C47605D5297D6D7E0072726D /* PredicateKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,6 +125,7 @@
 		C4760562297CE7100072726D = {
 			isa = PBXGroup;
 			children = (
+				C4C1A51A2981C4A400061371 /* README.md */,
 				C476056D297CE7100072726D /* simple-notes */,
 				C476057F297CE7120072726D /* simple-notesTests */,
 				C4760589297CE7120072726D /* simple-notesUITests */,
@@ -300,7 +300,6 @@
 			);
 			name = "simple-notes";
 			packageProductDependencies = (
-				C47605D4297D6D7E0072726D /* PredicateKit */,
 				C47605D7297D717B0072726D /* LoremSwiftum */,
 				C47605DD297D81620072726D /* CoreDataRepository */,
 			);
@@ -377,7 +376,6 @@
 			);
 			mainGroup = C4760562297CE7100072726D;
 			packageReferences = (
-				C47605D3297D6D7E0072726D /* XCRemoteSwiftPackageReference "PredicateKit" */,
 				C47605D6297D717B0072726D /* XCRemoteSwiftPackageReference "LoremSwiftum" */,
 				C47605DC297D81620072726D /* XCRemoteSwiftPackageReference "CoreDataRepository" */,
 			);
@@ -601,6 +599,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "simple-notes/General/simple_notes.entitlements";
 				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
@@ -610,6 +609,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "simple-notes/General/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Smpl;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -642,6 +642,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "simple-notes/General/simple_notes.entitlements";
 				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
@@ -651,6 +652,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "simple-notes/General/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Smpl;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -812,14 +814,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		C47605D3297D6D7E0072726D /* XCRemoteSwiftPackageReference "PredicateKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ftchirou/PredicateKit";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
 		C47605D6297D717B0072726D /* XCRemoteSwiftPackageReference "LoremSwiftum" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/lukaskubanek/LoremSwiftum.git";
@@ -839,11 +833,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		C47605D4297D6D7E0072726D /* PredicateKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C47605D3297D6D7E0072726D /* XCRemoteSwiftPackageReference "PredicateKit" */;
-			productName = PredicateKit;
-		};
 		C47605D7297D717B0072726D /* LoremSwiftum */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C47605D6297D717B0072726D /* XCRemoteSwiftPackageReference "LoremSwiftum" */;
