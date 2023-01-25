@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C40057512980AF4500D7A467 /* NotaRequestFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40057502980AF4500D7A467 /* NotaRequestFilter.swift */; };
+		C40057542980B9BA00D7A467 /* NotaListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40057532980B9BA00D7A467 /* NotaListItem.swift */; };
+		C40057562980BD4700D7A467 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40057552980BD4700D7A467 /* Constants.swift */; };
 		C476056F297CE7100072726D /* simple_notesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C476056E297CE7100072726D /* simple_notesApp.swift */; };
 		C4760571297CE7100072726D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4760570297CE7100072726D /* ContentView.swift */; };
 		C4760573297CE7120072726D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4760572297CE7120072726D /* Assets.xcassets */; };
@@ -28,6 +31,12 @@
 		C47605F6297DCEED0072726D /* DelayedSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47605F5297DCEED0072726D /* DelayedSave.swift */; };
 		C47605F8297E12120072726D /* NotasSorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47605F7297E12120072726D /* NotasSorting.swift */; };
 		C47605FA297E24080072726D /* DataPersistanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47605F9297E24080072726D /* DataPersistanceTests.swift */; };
+		C47605FD297F13720072726D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47605FC297F13720072726D /* MainView.swift */; };
+		C47605FF297F13BE0072726D /* NotaList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47605FE297F13BE0072726D /* NotaList.swift */; };
+		C4760602297F15620072726D /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4760601297F15620072726D /* View+Extensions.swift */; };
+		C4760605297F16D40072726D /* SortingPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4760604297F16D40072726D /* SortingPicker.swift */; };
+		C4760607297F68120072726D /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4760606297F68120072726D /* Array+Extensions.swift */; };
+		C4760609297F69580072726D /* NotaEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4760608297F69580072726D /* NotaEditor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +57,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C40057502980AF4500D7A467 /* NotaRequestFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotaRequestFilter.swift; sourceTree = "<group>"; };
+		C40057522980B61D00D7A467 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C40057532980B9BA00D7A467 /* NotaListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotaListItem.swift; sourceTree = "<group>"; };
+		C40057552980BD4700D7A467 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C476056B297CE7100072726D /* simple-notes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "simple-notes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C476056E297CE7100072726D /* simple_notesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = simple_notesApp.swift; sourceTree = "<group>"; };
 		C4760570297CE7100072726D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -70,6 +83,12 @@
 		C47605F5297DCEED0072726D /* DelayedSave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayedSave.swift; sourceTree = "<group>"; };
 		C47605F7297E12120072726D /* NotasSorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotasSorting.swift; sourceTree = "<group>"; };
 		C47605F9297E24080072726D /* DataPersistanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistanceTests.swift; sourceTree = "<group>"; };
+		C47605FC297F13720072726D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		C47605FE297F13BE0072726D /* NotaList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotaList.swift; sourceTree = "<group>"; };
+		C4760601297F15620072726D /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		C4760604297F16D40072726D /* SortingPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingPicker.swift; sourceTree = "<group>"; };
+		C4760606297F68120072726D /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
+		C4760608297F69580072726D /* NotaEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotaEditor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +179,7 @@
 		C4760599297CE7770072726D /* General */ = {
 			isa = PBXGroup;
 			children = (
+				C40057522980B61D00D7A467 /* Info.plist */,
 				C4760572297CE7120072726D /* Assets.xcassets */,
 				C476056E297CE7100072726D /* simple_notesApp.swift */,
 				C4760574297CE7120072726D /* simple_notes.entitlements */,
@@ -170,6 +190,7 @@
 		C476059A297CE7AD0072726D /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				C47605FB297EE7340072726D /* Views */,
 				C47605F4297DCEDF0072726D /* Helpers */,
 				C47605EE297D8C240072726D /* ViewModels */,
 				C47605CD297CF8E00072726D /* DataManagement */,
@@ -212,6 +233,7 @@
 			children = (
 				C47605EF297D8C700072726D /* NotasViewModel.swift */,
 				C47605F7297E12120072726D /* NotasSorting.swift */,
+				C40057502980AF4500D7A467 /* NotaRequestFilter.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -219,9 +241,40 @@
 		C47605F4297DCEDF0072726D /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				C4760600297F15560072726D /* Extensions */,
 				C47605F5297DCEED0072726D /* DelayedSave.swift */,
+				C40057552980BD4700D7A467 /* Constants.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		C47605FB297EE7340072726D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C4760603297F16C50072726D /* Components */,
+				C47605FC297F13720072726D /* MainView.swift */,
+				C47605FE297F13BE0072726D /* NotaList.swift */,
+				C4760608297F69580072726D /* NotaEditor.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C4760600297F15560072726D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C4760601297F15620072726D /* View+Extensions.swift */,
+				C4760606297F68120072726D /* Array+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C4760603297F16C50072726D /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				C4760604297F16D40072726D /* SortingPicker.swift */,
+				C40057532980B9BA00D7A467 /* NotaListItem.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -365,16 +418,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				C47605D2297CFE610072726D /* PersistenceController+Extension.swift in Sources */,
+				C47605FD297F13720072726D /* MainView.swift in Sources */,
+				C40057542980B9BA00D7A467 /* NotaListItem.swift in Sources */,
+				C4760605297F16D40072726D /* SortingPicker.swift in Sources */,
 				C4760571297CE7100072726D /* ContentView.swift in Sources */,
+				C4760609297F69580072726D /* NotaEditor.swift in Sources */,
 				C47605F6297DCEED0072726D /* DelayedSave.swift in Sources */,
 				C47605E9297D82D40072726D /* NotaEntity.swift in Sources */,
+				C47605FF297F13BE0072726D /* NotaList.swift in Sources */,
 				C47605F8297E12120072726D /* NotasSorting.swift in Sources */,
+				C4760607297F68120072726D /* Array+Extensions.swift in Sources */,
+				C40057562980BD4700D7A467 /* Constants.swift in Sources */,
 				C47605F0297D8C700072726D /* NotasViewModel.swift in Sources */,
 				C47605F3297DC6890072726D /* Main.xcdatamodeld in Sources */,
 				C47605E6297D827C0072726D /* NotaEntity+RepositoryManagedModel.swift in Sources */,
 				C47605ED297D83E10072726D /* NotaModel+UnmanagedModel.swift in Sources */,
+				C40057512980AF4500D7A467 /* NotaRequestFilter.swift in Sources */,
 				C47605E2297D81B00072726D /* NotaModel.swift in Sources */,
 				C476056F297CE7100072726D /* simple_notesApp.swift in Sources */,
+				C4760602297F15620072726D /* View+Extensions.swift in Sources */,
 				C47605CF297CF8F80072726D /* PersistenceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -446,6 +508,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -504,6 +567,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -528,13 +592,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "simple-notes/General/simple_notes.entitlements";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"simple-notes/Preview Content\"";
 				DEVELOPMENT_TEAM = UZ92ZC5M3A;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "simple-notes/General/Info.plist";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -566,13 +633,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "simple-notes/General/simple_notes.entitlements";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"simple-notes/Preview Content\"";
 				DEVELOPMENT_TEAM = UZ92ZC5M3A;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "simple-notes/General/Info.plist";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -605,6 +675,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = UZ92ZC5M3A;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
@@ -628,6 +699,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = UZ92ZC5M3A;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
@@ -650,6 +722,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = UZ92ZC5M3A;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
@@ -672,6 +745,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = UZ92ZC5M3A;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
