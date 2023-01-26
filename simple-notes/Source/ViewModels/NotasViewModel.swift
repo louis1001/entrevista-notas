@@ -9,7 +9,6 @@ import SwiftUI
 import Combine
 import CoreData
 import CoreDataRepository
-import PredicateKit
 
 @MainActor
 class NotasViewModel: ObservableObject {
