@@ -50,7 +50,7 @@ struct NotaEditor: View {
 // MARK: Editor Header
 private extension NotaEditor {
     var titleField: some View {
-        TextField("Nueva Nota", text: $nota.title)
+        TextField("new-note", text: $nota.title)
             .textFieldStyle(.plain)
             .font(.title2)
             .bold()
@@ -58,7 +58,7 @@ private extension NotaEditor {
     
     var timeStamp: some View {
         VStack(alignment: .trailing) {
-            Text("Creada")
+            Text("created-at")
                 .font(.caption)
             Text(nota.creationDate.formatted())
                 .font(.caption2)
@@ -87,7 +87,7 @@ private extension NotaEditor {
     var contentField: some View {
         ZStack {
             if nota.body.isEmpty {
-                Text("Escribe tu nota")
+                Text("write-your-note")
                     .opacity(0.4)
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                     .allowsHitTesting(false)
