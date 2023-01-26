@@ -17,19 +17,19 @@ extension NotaEntity: RepositoryManagedModel {
     public var asUnmanaged: Nota {
         Nota(
             id: id ?? UUID(),
-            titulo: titulo ?? "",
-            contenido: contenido ?? "",
-            fecha: fecha ?? .now,
-            ultimaEdicion: ultimaEdicion ?? .now,
+            title: titulo ?? "",
+            body: contenido ?? "",
+            creationDate: fecha ?? .now,
+            editDate: ultimaEdicion ?? .now,
             url: objectID.uriRepresentation()
         )
     }
     
     public func update(from unmanaged: Nota) {
         id = unmanaged.id
-        titulo = unmanaged.titulo
-        contenido = unmanaged.contenido
-        fecha = unmanaged.fecha
-        ultimaEdicion = unmanaged.ultimaEdicion
+        titulo = unmanaged.title
+        contenido = unmanaged.body
+        fecha = unmanaged.creationDate
+        ultimaEdicion = unmanaged.editDate
     }
 }

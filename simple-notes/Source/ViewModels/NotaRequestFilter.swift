@@ -26,15 +26,15 @@ extension NotasViewModel {
             let sortDescriptors: [NSSortDescriptor]
             
             switch sorting.option {
-            case .titulo:
+            case .title:
                 sortDescriptors = [
                     NSSortDescriptor(keyPath: \NotaEntity.titulo, ascending: sorting.ascending)
                 ]
-            case .contenido:
+            case .content:
                 sortDescriptors = [
                     NSSortDescriptor(keyPath: \NotaEntity.contenido, ascending: sorting.ascending)
                 ]
-            case .fecha:
+            case .editDate:
                 sortDescriptors = [
                     NSSortDescriptor(keyPath: \NotaEntity.ultimaEdicion, ascending: sorting.ascending)
                 ]

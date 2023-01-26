@@ -9,15 +9,15 @@ import Foundation
 
 public struct Nota: Hashable {
     let id: UUID
-    var titulo: String
-    var contenido: String
-    var fecha: Date = .now
-    var ultimaEdicion: Date = .now
+    var title: String
+    var body: String
+    var creationDate: Date = .now
+    var editDate: Date = .now
     var url: URL?
 }
 
 extension Nota {
-    var noHaSidoEditada: Bool {
-        ultimaEdicion == fecha
+    var isUnedited: Bool {
+        editDate == creationDate
     }
 }

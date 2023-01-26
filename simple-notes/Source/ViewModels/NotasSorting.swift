@@ -9,13 +9,13 @@ import Foundation
 
 struct NotasSorting: Codable {
     enum Option: String, CaseIterable {
-        case fecha
-        case titulo
-        case contenido
+        case editDate
+        case title
+        case content
         
         var isAscendingByDefault: Bool {
             // Fechas por defecto la mas reciente primero
-            if self == .fecha { return false }
+            if self == .editDate { return false }
             
             // Los campos de texto por defecto ascendentes/alfabéticos
             return true
@@ -29,9 +29,9 @@ struct NotasSorting: Codable {
         ascending.toggle()
     }
     
-    static let porFecha = NotasSorting(option: .fecha, ascending: false)
-    static let porTitulo = NotasSorting(option: .titulo, ascending: false)
-    static let porContenido = NotasSorting(option: .contenido, ascending: false)
+    static let byEditDate = NotasSorting(option: .editDate, ascending: false)
+    static let byTitle = NotasSorting(option: .title, ascending: false)
+    static let byContent = NotasSorting(option: .content, ascending: false)
 }
 
 extension NotasSorting: RawRepresentable {
@@ -39,7 +39,7 @@ extension NotasSorting: RawRepresentable {
         let values = rawValue.split(separator: " ")
         guard values.count == 2 else { return nil }
         
-        let option = Option(rawValue: String(values[0])) ?? .fecha
+        let option = Option(rawValue: String(values[0])) ?? .editDate
         let ascending = values[1] == "true"
         self = NotasSorting(option: option, ascending: ascending)
     }
