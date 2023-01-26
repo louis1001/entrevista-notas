@@ -66,7 +66,7 @@ extension NotasViewModel {
     // Create
     @discardableResult
     func newNota() async -> Nota? {
-        if let index = notas.firstIndex(where: { !$0.isUnedited }) {
+        if let index = notas.firstIndex(where: { $0.isUnedited }) {
             // Si hay una nota que es nueva y no ha sido editada
             
             // Si se está buscando, cancelar la busqueda
