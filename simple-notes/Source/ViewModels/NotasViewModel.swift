@@ -24,7 +24,7 @@ class NotasViewModel: ObservableObject {
         searchQuery.isEmpty ? .all : .search(searchQuery)
     }
     
-    @AppStorage("notasOrderBy") var sorting = NotasSorting.porFecha {
+    @AppStorage("notasOrderBy") var sorting = NotasSorting.byEditDate {
         didSet {
             Task { await self.refreshNotas(with: filter) }
         }
@@ -66,7 +66,7 @@ extension NotasViewModel {
     // Create
     @discardableResult
     func newNota() async -> Nota? {
-        if let index = notas.firstIndex(where: { $0.noHaSidoEditada }) {
+        if let index = notas.firstIndex(where: { !$0.isUnedited }) {
             // Si hay una nota que es nueva y no ha sido editada
             
             // Si se está buscando, cancelar la busqueda
@@ -76,7 +76,7 @@ extension NotasViewModel {
             return notas[index]
         }
         
-        let nota = Nota(id: UUID(), titulo: "", contenido: "")
+        let nota = Nota(id: UUID(), title: "", body: "")
         
         let result = await repository.create(nota)
         
@@ -84,6 +84,8 @@ extension NotasViewModel {
         // actualizar los datos actuales con la respuesta de .create
         switch result {
         case .success(let nota):
+            // Esto puede causar problemas al tener un metodo de ordenación aparte de fecha reciente.
+            // La nota se pondrá de primera, pero al editar cualquier cosa se va actualizar el orden
             notas.insert(nota, at: 0)
             return nota
         case .failure(let error):
@@ -143,7 +145,7 @@ extension NotasViewModel {
     
     private func commitSave(_ nota: Nota) async {
         var nota = nota
-        nota.ultimaEdicion = .now
+        nota.editDate = .now
         
         let result = await repository.update([nota])
         

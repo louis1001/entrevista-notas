@@ -14,12 +14,6 @@ final class DataPersistanceTests: XCTestCase {
     private let persistenceController: PersistenceController = PersistenceController(inMemory: true)
     private var viewModel: NotasViewModel?
     
-    // MARK: Helpers
-    @MainActor func getFirstNota() throws -> Nota {
-        let nota = viewModel?.notas.first
-        return try XCTUnwrap(nota, "Debería haber una nota luego de crearla")
-    }
-    
     // MARK: Setup
     @MainActor override func setUpWithError() throws {
         viewModel = NotasViewModel(persistence: persistenceController)
@@ -47,7 +41,7 @@ final class DataPersistanceTests: XCTestCase {
     func testNewNota() async throws {
         let nota = try await createNota()
         
-        XCTAssertEqual(nota.titulo, "")
+        XCTAssertEqual(nota.title, "")
     }
     
     @MainActor func testEditNota() async throws {
@@ -56,13 +50,13 @@ final class DataPersistanceTests: XCTestCase {
         
         //RunLoop.main.run(mode: .default, before: .distantPast)
         
-        nota.titulo = "Una nota editada"
-        nota.contenido = "Con un contenido simple."
+        nota.title = "Una nota editada"
+        nota.body = "Con un contenido simple."
         
         await viewModel.updateNota(nota, force: true)
         
-        XCTAssertEqual(viewModel.notas.first?.titulo, nota.titulo)
-        XCTAssertEqual(viewModel.notas.first?.contenido, nota.contenido)
+        XCTAssertEqual(viewModel.notas.first?.title, nota.title)
+        XCTAssertEqual(viewModel.notas.first?.body, nota.body)
     }
     
     @MainActor
@@ -81,12 +75,12 @@ final class DataPersistanceTests: XCTestCase {
     func testFilteringNota() async throws {
         let viewModel = try XCTUnwrap(viewModel)
         var nota1 = try await createNota()
-        nota1.titulo = "123 saving 523"
-        nota1.contenido = "random 000"
+        nota1.title = "123 saving 523"
+        nota1.body = "random 000"
         await viewModel.updateNota(nota1, force: true)
         
         var nota2 = try await createNota()
-        nota2.titulo = "--=-random=---="
+        nota2.title = "--=-random=---="
         await viewModel.updateNota(nota2, force: true)
         
         viewModel.searchQuery = "123"

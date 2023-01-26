@@ -50,17 +50,17 @@ struct NotaEditor: View {
 // MARK: Editor Header
 private extension NotaEditor {
     var titleField: some View {
-        TextField("Nueva Nota", text: $nota.titulo)
+        TextField("Nueva Nota", text: $nota.title)
             .textFieldStyle(.plain)
             .font(.title2)
             .bold()
     }
     
-    var fecha: some View {
+    var timeStamp: some View {
         VStack(alignment: .trailing) {
             Text("Creada")
                 .font(.caption)
-            Text(nota.fecha.formatted())
+            Text(nota.creationDate.formatted())
                 .font(.caption2)
         }
         .opacity(0.7)
@@ -72,7 +72,7 @@ private extension NotaEditor {
             HStack {
                 titleField
                 
-                fecha
+                timeStamp
             }
         } else {
             // Siempre iPhone (no wide screen)
@@ -86,14 +86,14 @@ private extension NotaEditor {
 private extension NotaEditor {
     var contentField: some View {
         ZStack {
-            if nota.contenido.isEmpty {
+            if nota.body.isEmpty {
                 Text("Escribe tu nota")
                     .opacity(0.4)
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                     .allowsHitTesting(false)
             }
             
-            CustomizableTextEditor(text: $nota.contenido, fontName: CONTENT_FONT_NAME, fontSize: 14)
+            CustomizableTextEditor(text: $nota.body, fontName: CONTENT_FONT_NAME, fontSize: 14)
                 .textPadding(20)
                 .maxWidth(900)
 #if os(macOS)
@@ -114,7 +114,7 @@ private extension NotaEditor {
     var toolbarItems: some View {
         Group {
             if !wideScreen {
-                fecha
+                timeStamp
             }
             shareAction
         }
@@ -124,7 +124,7 @@ private extension NotaEditor {
 // MARK: Sharing
 private extension NotaEditor {
     var notaAsText: String {
-        "\(nota.titulo)\n\n\(nota.contenido)"
+        "\(nota.title)\n\n\(nota.body)"
     }
     
     var shareAction: some View {

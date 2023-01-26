@@ -16,7 +16,6 @@ class PersistenceController: ObservableObject {
         if inMemory {
             let psd = NSPersistentStoreDescription()
             psd.type = NSInMemoryStoreType
-//            psd.url = URL(fileURLWithPath: "/dev/null")
             
             container.persistentStoreDescriptions = [psd]
         }
