@@ -12,3 +12,5 @@ let IS_MAC = true
 #else
 let IS_MAC = false
 #endif
+
+let CONTENT_FONT_NAME = "Noto Sans Armenian Regular"

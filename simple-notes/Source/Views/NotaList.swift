@@ -14,7 +14,7 @@ struct NotaList: View {
     
     // MARK: macOS Header
     private var macHeader: some View {
-        Text("Mis Notas")
+        Text("list-title")
             .font(.title)
             .bold()
             .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
@@ -32,7 +32,7 @@ struct NotaList: View {
         }
         .overlay {
             if viewModel.notas.isEmpty {
-                Text("Crea una nota")
+                Text("create-note")
                     .opacity(0.8)
                     .blendMode(.multiply)
             }
@@ -65,7 +65,7 @@ struct NotaList: View {
         }
 #if os(macOS)
         .contextMenu {
-            Label("Delete", systemImage: "trash")
+            Label("delete-note", systemImage: "trash")
                 .asButton { delete(indice: indice) }
         }
 #endif

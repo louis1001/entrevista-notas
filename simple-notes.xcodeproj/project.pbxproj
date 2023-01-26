@@ -12,6 +12,7 @@
 		C40057562980BD4700D7A467 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40057552980BD4700D7A467 /* Constants.swift */; };
 		C40057582980BEF200D7A467 /* CustomizableTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40057572980BEF200D7A467 /* CustomizableTextView.swift */; };
 		C400575A2980C33400D7A467 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40057592980C33400D7A467 /* Color+Extensions.swift */; };
+		C418492B298205F200CC15F8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C418492D298205F200CC15F8 /* Localizable.strings */; };
 		C476056F297CE7100072726D /* simple_notesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C476056E297CE7100072726D /* simple_notesApp.swift */; };
 		C4760571297CE7100072726D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4760570297CE7100072726D /* ContentView.swift */; };
 		C4760573297CE7120072726D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4760572297CE7120072726D /* Assets.xcassets */; };
@@ -64,6 +65,9 @@
 		C40057552980BD4700D7A467 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C40057572980BEF200D7A467 /* CustomizableTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizableTextView.swift; sourceTree = "<group>"; };
 		C40057592980C33400D7A467 /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
+		C418492C298205F200CC15F8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C418492E2982066000CC15F8 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		C418492F2982066A00CC15F8 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C476056B297CE7100072726D /* simple-notes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "simple-notes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C476056E297CE7100072726D /* simple_notesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = simple_notesApp.swift; sourceTree = "<group>"; };
 		C4760570297CE7100072726D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -122,6 +126,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C4184928298205D800CC15F8 /* Localizations */ = {
+			isa = PBXGroup;
+			children = (
+				C418492D298205F200CC15F8 /* Localizable.strings */,
+			);
+			path = Localizations;
+			sourceTree = "<group>";
+		};
 		C4760562297CE7100072726D = {
 			isa = PBXGroup;
 			children = (
@@ -255,6 +267,7 @@
 		C47605FB297EE7340072726D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C4184928298205D800CC15F8 /* Localizations */,
 				C4760603297F16C50072726D /* Components */,
 				C47605FC297F13720072726D /* MainView.swift */,
 				C47605FE297F13BE0072726D /* NotaList.swift */,
@@ -373,6 +386,8 @@
 			knownRegions = (
 				en,
 				Base,
+				"es-419",
+				fr,
 			);
 			mainGroup = C4760562297CE7100072726D;
 			packageReferences = (
@@ -396,6 +411,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4760577297CE7120072726D /* Preview Assets.xcassets in Resources */,
+				C418492B298205F200CC15F8 /* Localizable.strings in Resources */,
 				C4760573297CE7120072726D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -480,11 +496,25 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		C418492D298205F200CC15F8 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C418492C298205F200CC15F8 /* en */,
+				C418492E2982066000CC15F8 /* es-419 */,
+				C418492F2982066A00CC15F8 /* fr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		C476058E297CE7120072726D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -544,6 +574,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -624,7 +655,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.louis1001.simple-notes";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -667,7 +698,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.louis1001.simple-notes";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;

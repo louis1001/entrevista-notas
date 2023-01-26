@@ -23,10 +23,10 @@ extension Nota: UnmanagedModel {
     public func asRepoManaged(in context: NSManagedObjectContext) -> NotaEntity {
         let object = NotaEntity(context: context)
         object.id = id
-        object.titulo = titulo
-        object.contenido = contenido
-        object.fecha = fecha
-        object.ultimaEdicion = ultimaEdicion
+        object.titulo = title
+        object.contenido = body
+        object.fecha = creationDate
+        object.ultimaEdicion = editDate
         
         return object
     }

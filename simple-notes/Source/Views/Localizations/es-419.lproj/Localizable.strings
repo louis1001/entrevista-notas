@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  simple-notes
+
+  Created by Luis Gonzalez on 25/1/23.
+  
+*/
+
+"list-title" = "Mis Notas";
+"detail-placeholder" = "Abre una nota";
+
+"create-note" = "Crea una nota";
+"delete-note" = "Eliminar";
+
+"write-your-note" = "Escribe tu nota";
+"new-note" = "Nueva nota";
+"created-at" = "Creada";
+
+"sort-edit-date" = "Más reciente";
+"sort-title"     = "Titulo";
+"sort-content"   = "Contenido";
+
+"no-content" = "sin contenido";

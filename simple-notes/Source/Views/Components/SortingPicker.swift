@@ -7,12 +7,21 @@
 
 import SwiftUI
 
+private extension NotasSorting.Option {
+    var localizationKey: LocalizedStringKey {
+        switch self {
+        case .editDate: return "sort-edit-date"
+        case .title: return    "sort-title"
+        case .content: return  "sort-content"
+        }
+    }
+}
+
 struct SortingPicker: View {
     @Binding var currentSorting: NotasSorting
     
     @ViewBuilder
     func row(for sort: NotasSorting.Option) -> some View {
-        let text = sort.rawValue.capitalized
         let arrowUpOrDown = currentSorting.ascending ? "arrow.up" : "arrow.down"
         let isSelected = currentSorting.option == sort
         
@@ -20,10 +29,10 @@ struct SortingPicker: View {
             pressed(sorting: sort)
         } label: {
             if isSelected {
-                Label(text, systemImage: arrowUpOrDown)
+                Label(sort.localizationKey, systemImage: arrowUpOrDown)
                     .labelStyle(.titleAndIcon)
             } else {
-                Text(text)
+                Text(sort.localizationKey)
             }
         }
     }

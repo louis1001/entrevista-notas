@@ -38,7 +38,7 @@ struct MainView: View {
 #else
     .navigationSplitViewColumnWidth(min: 100, ideal: 400, max: 400)
 #endif
-    .navigationTitle("Mis Notas")
+    .navigationTitle("list-title")
     }
     
     // MARK: Detail
@@ -51,7 +51,7 @@ struct MainView: View {
                 .id(selection.id)
         } else {
             VStack {
-                Text("Abre una nota")
+                Text("detail-placeholder")
             }
                 .id(-123)
         }
