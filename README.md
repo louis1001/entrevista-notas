@@ -11,6 +11,14 @@ Un cuaderno virtual para registrar notas. El proyecto tiene la arquitectura MVVM
 - Ordenación: Se puede elegir si las notas aparecen ordenadas por fecha, titulo o contenido. Y si es ascendente o descendente.
 - Busqueda: Se puede escribir un texto de busqueda, y la lista de notas se actualiza con las notas cuyo título o contenido contengan el texto.
 
+## Screenshots
+
+[macos light]!(./Resources/macos_light.png)
+[macos dark]!(./Resources/macos_dark.png)
+[iphone list]!(./Resources/iphone_list.png)
+[iphone edit]!(./Resources/iphone_edit.png)
+[ipad new]!(./Resources/ipad_new.png)
+
 ## Bugs actuales
 
 - Al crear una nueva nota, es posible que la selección en la lista se confunda
