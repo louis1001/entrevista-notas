@@ -39,6 +39,11 @@
 		C4760605297F16D40072726D /* SortingPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4760604297F16D40072726D /* SortingPicker.swift */; };
 		C4760607297F68120072726D /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4760606297F68120072726D /* Array+Extensions.swift */; };
 		C4760609297F69580072726D /* NotaEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4760608297F69580072726D /* NotaEditor.swift */; };
+		C4E4C7A82992D63600465E4D /* iphone_edit.png in Resources */ = {isa = PBXBuildFile; fileRef = C4E4C7A32992D63600465E4D /* iphone_edit.png */; };
+		C4E4C7A92992D63600465E4D /* iphone_list.png in Resources */ = {isa = PBXBuildFile; fileRef = C4E4C7A42992D63600465E4D /* iphone_list.png */; };
+		C4E4C7AA2992D63600465E4D /* macos_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = C4E4C7A52992D63600465E4D /* macos_dark.png */; };
+		C4E4C7AB2992D63600465E4D /* ipad_new.png in Resources */ = {isa = PBXBuildFile; fileRef = C4E4C7A62992D63600465E4D /* ipad_new.png */; };
+		C4E4C7AC2992D63600465E4D /* macos_light.png in Resources */ = {isa = PBXBuildFile; fileRef = C4E4C7A72992D63600465E4D /* macos_light.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +102,11 @@
 		C4760606297F68120072726D /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		C4760608297F69580072726D /* NotaEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotaEditor.swift; sourceTree = "<group>"; };
 		C4C1A51A2981C4A400061371 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C4E4C7A32992D63600465E4D /* iphone_edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphone_edit.png; sourceTree = "<group>"; };
+		C4E4C7A42992D63600465E4D /* iphone_list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphone_list.png; sourceTree = "<group>"; };
+		C4E4C7A52992D63600465E4D /* macos_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = macos_dark.png; sourceTree = "<group>"; };
+		C4E4C7A62992D63600465E4D /* ipad_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ipad_new.png; sourceTree = "<group>"; };
+		C4E4C7A72992D63600465E4D /* macos_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = macos_light.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +147,7 @@
 		C4760562297CE7100072726D = {
 			isa = PBXGroup;
 			children = (
+				C4E4C7A22992D5EB00465E4D /* Resources */,
 				C4C1A51A2981C4A400061371 /* README.md */,
 				C476056D297CE7100072726D /* simple-notes */,
 				C476057F297CE7120072726D /* simple-notesTests */,
@@ -296,6 +307,18 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		C4E4C7A22992D5EB00465E4D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C4E4C7A62992D63600465E4D /* ipad_new.png */,
+				C4E4C7A32992D63600465E4D /* iphone_edit.png */,
+				C4E4C7A42992D63600465E4D /* iphone_list.png */,
+				C4E4C7A52992D63600465E4D /* macos_dark.png */,
+				C4E4C7A72992D63600465E4D /* macos_light.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -410,9 +433,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4E4C7A92992D63600465E4D /* iphone_list.png in Resources */,
+				C4E4C7AB2992D63600465E4D /* ipad_new.png in Resources */,
 				C4760577297CE7120072726D /* Preview Assets.xcassets in Resources */,
 				C418492B298205F200CC15F8 /* Localizable.strings in Resources */,
+				C4E4C7AC2992D63600465E4D /* macos_light.png in Resources */,
+				C4E4C7A82992D63600465E4D /* iphone_edit.png in Resources */,
 				C4760573297CE7120072726D /* Assets.xcassets in Resources */,
+				C4E4C7AA2992D63600465E4D /* macos_dark.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -629,8 +657,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "simple-notes/General/simple_notes.entitlements";
-				CODE_SIGN_IDENTITY = "-";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
@@ -641,6 +669,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "simple-notes/General/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Smpl;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -658,6 +687,7 @@
 				MARKETING_VERSION = 0.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.louis1001.simple-notes";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -672,8 +702,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "simple-notes/General/simple_notes.entitlements";
-				CODE_SIGN_IDENTITY = "-";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
@@ -684,6 +714,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "simple-notes/General/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Smpl;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -701,6 +732,7 @@
 				MARKETING_VERSION = 0.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.louis1001.simple-notes";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
